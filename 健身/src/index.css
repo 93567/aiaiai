@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f1f5f9; /* slate-100 */
+    color: #334155; /* slate-700 */
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #e2e8f0; border-left: 1px solid #cbd5e1; }
+  ::-webkit-scrollbar-thumb { background: #94a3b8; }
+  ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+  
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Mecha Backgrounds */
+  .bg-mecha-grid {
+    background-image: 
+      linear-gradient(#cbd5e1 1px, transparent 1px),
+      linear-gradient(90deg, #cbd5e1 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .bg-mecha-hex {
+    background-color: #f8fafc;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='40' viewBox='0 0 24 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10l12-10 12 10v20l-12 10L0 30V10z' fill='none' stroke='%23e2e8f0' stroke-width='1.5'/%3E%3C/svg%3E");
+  }
+
+  /* Mecha Panels */
+  .mech-panel {
+    background: #ffffff;
+    border: 3px solid #1e293b;
+    box-shadow: 8px 8px 0px rgba(148, 163, 184, 0.5);
+    position: relative;
+  }
+  .mech-panel::before {
+    content: '';
+    position: absolute;
+    top: 4px; left: 4px; right: 4px; bottom: 4px;
+    border: 1px solid rgba(203, 213, 225, 0.4);
+    pointer-events: none;
+  }
+  .mech-card {
+    background: #ffffff;
+    border: 2px solid #334155;
+    position: relative;
+  }
+
+  /* Cut Corners */
+  .cut-corner { clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px); }
+  .cut-corner-tl { clip-path: polygon(24px 0, 100% 0, 100% 100%, 0 100%, 0 24px); }
+  .cut-corner-br { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%); }
+  .cut-corner-diag { clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px); }
+  .cut-corner-sm { clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px); }
+
+  /* Decorations */
+  .mecha-barcode {
+    background: repeating-linear-gradient(90deg, #334155, #334155 2px, transparent 2px, transparent 5px, #334155 5px, #334155 7px, transparent 7px, transparent 10px, #334155 10px, #334155 11px, transparent 11px, transparent 14px);
+  }
+  
+  .hazard-stripes {
+    background-image: repeating-linear-gradient(45deg, #facc15 0, #facc15 12px, #1e293b 12px, #1e293b 24px);
+  }
+  .hazard-stripes-sm {
+    background-image: repeating-linear-gradient(45deg, #facc15 0, #facc15 6px, #1e293b 6px, #1e293b 12px);
+  }
+
+  /* Mecha Buttons */
+  .mech-button {
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 2px solid #1e293b;
+    background: #f8fafc;
+    color: #1e293b;
+    box-shadow: 4px 4px 0px #cbd5e1;
+    transition: all 0.1s ease-out;
+  }
+  .mech-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #94a3b8;
+    background: #f1f5f9;
+  }
+  .mech-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #cbd5e1;
+  }
+  
+  .mech-button-primary {
+    background: #f97316;
+    color: #ffffff;
+    border-color: #7c2d12;
+    box-shadow: 4px 4px 0px #fdba74;
+  }
+  .mech-button-primary:hover {
+    background: #ea580c;
+    box-shadow: 6px 6px 0px #fdba74;
+  }
+
+  .mech-button-blue {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #1e3a8a;
+    box-shadow: 4px 4px 0px #93c5fd;
+  }
+  .mech-button-blue:hover {
+    background: #1d4ed8;
+    box-shadow: 6px 6px 0px #93c5fd;
+  }
+  
+  /* Inputs */
+  input[type=range] { -webkit-appearance: none; background: transparent; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 24px; width: 16px; border: 2px solid #1e293b; background: #f97316; cursor: pointer; margin-top: -10px; border-radius: 0; box-shadow: 2px 2px 0px #1e293b; clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
+  input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #cbd5e1; border: 1px solid #94a3b8; }
+}
